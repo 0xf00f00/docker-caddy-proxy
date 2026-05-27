@@ -1,6 +1,5 @@
 # docker-caddy-proxy
 
-
 caddy docker image with forward proxy plugin
 
 ```
