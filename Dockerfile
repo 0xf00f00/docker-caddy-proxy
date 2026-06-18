@@ -1,6 +1,9 @@
-FROM caddy:builder AS builder
+FROM --platform=$BUILDPLATFORM caddy:builder AS builder
 
-RUN xcaddy build \
+ARG TARGETOS
+ARG TARGETARCH
+
+RUN GOOS=$TARGETOS GOARCH=$TARGETARCH CGO_ENABLED=0 xcaddy build \
     --with github.com/caddyserver/forwardproxy@caddy2=github.com/klzgrad/forwardproxy@naive \
     --with github.com/porech/caddy-maxmind-geolocation \
     --with github.com/caddy-dns/cloudflare
