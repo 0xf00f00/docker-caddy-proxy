@@ -2,7 +2,8 @@ FROM caddy:builder AS builder
 
 RUN xcaddy build \
     --with github.com/caddyserver/forwardproxy@caddy2=github.com/sagernet/forwardproxy@latest \
-    --with github.com/porech/caddy-maxmind-geolocation
+    --with github.com/porech/caddy-maxmind-geolocation \
+    --with github.com/caddy-dns/cloudflare
 
 FROM caddy:latest
 
